@@ -1,0 +1,148 @@
+@import './variables.css';
+
+.custom-divider {
+    border: none;        
+    height: 1px;           
+    background-color: var(--primary-color-black); 
+    margin: 2px;      
+}
+.form-range-container {
+    display: flex;
+    gap: 25px; 
+    align-items: flex-start;
+    margin-bottom: 1px; 
+    width: 100%;
+}
+.form-range-container .form-input {
+    flex: 1; 
+    min-height: 1px; 
+    min-width: 0;
+}
+.form-input {
+    display: flex;
+    flex-direction: column;
+}
+.form-range-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    white-space: wrap;
+}
+.form-range-container input,
+.form-range-container select {
+    width: 100%;
+    padding: 10px;
+    flex: 1;            
+    min-width: 0;
+}
+.platform-select {
+    position: relative;
+    margin-bottom: 15px;
+    width: 100%;
+}
+.platform-select select {
+    width: 80%;
+    padding: var(--spacing-medium);
+    border: 1px solid var(--secondary-color-gray);
+    border-radius: 10px;
+    appearance: none; 
+    font-size: var(--font-size-medium);
+    cursor: pointer;
+}
+.platform-select option {
+    padding: 8px;
+    background-color: var(--primary-color-white);
+    color: var( --primary-color-black);
+}
+.platform-select select:focus {
+    outline: none;
+    border-color: var(--primary-color-blue); 
+    box-shadow: 0 0 5px var(--secondary-color-gradient-blue); 
+}
+.platform-select::after {
+    content: "▼";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--primary-color-black);
+}
+.metrics-container {
+    background-color: var(--primary-color-white);
+    padding: 10px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); 
+    width: 90%; 
+    max-width: 2000px;  
+    margin: 20px auto; 
+    text-align: left;
+    overflow-x: auto;  
+    overflow-y: auto; 
+}
+.metrics-container input,
+.metrics-container select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 1px;
+}
+.metrics-container button {
+    margin-top: 8px;
+}
+.metrics-container h4 {
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+.subtitle, .legend {
+    color: var(--secondary-color-dark-gray);
+}
+.subtitle {
+    margin: 0;
+}
+.legend {
+    margin: 5px;
+}
+.metric-wrapper {
+    width: 100%;
+    overflow-x: auto; 
+    padding: 0;
+}
+
+@media (max-width: 600px) {
+    .metrics-container input,
+    .metrics-container select {
+        padding: 8px 10px; 
+        font-size: 14px; 
+    } 
+    .metrics-container {
+        width: 95%; 
+        margin: 10px auto; 
+        padding: 15px;
+    }
+    .form-range-container {
+        flex-direction: column; 
+        gap: 10px; 
+    }
+    .form-input {
+        width: 100%; 
+    }
+    .platform-select select {
+        width: 100%;
+    }
+}
+@media (min-width: 601px) and (max-width: 768px) {
+    .metrics-container {
+        width: 90%;
+        padding: 13px 20px;
+    }
+    .form-range-container {
+        gap: 15px;
+    }
+}  
+@media (min-width: 1024px) {
+    .metrics-container {
+        padding: 15px 35px;
+        max-width: 2000px; 
+    }
+}
