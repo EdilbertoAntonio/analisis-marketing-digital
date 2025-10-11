@@ -1,7 +1,7 @@
 import React from 'react';
-//import '../assets/styles/global.css';
+import '../assets/styles/input.css';
 
-const InputNumber = ({placeholder, value, onChange, id, min, step, onBlur, isDecimal = false, className='input' }) => {
+const InputNumber = ({placeholder, value, onChange, id, onBlur, isDecimal = false, className='', error, ...props }) => {
 
   const handleChange = (e) => {
     let inputValue = e.target.value;
@@ -77,9 +77,8 @@ const handleBlur = (e) => {
         onChange={handleChange}
         onBlur={handleBlur}
         id={id}
-        min={min}
-        step={step}
-        className={className}
+        className={`custom-input ${error ? 'error' : ''} ${className}`}
+        {...props}
       />
     </div>
   );

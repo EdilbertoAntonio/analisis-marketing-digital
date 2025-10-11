@@ -1,7 +1,7 @@
 import React from 'react';
-//import '../assets/styles/global.css';
+import '../assets/styles/input.css';
 
-const Input = ({ type, placeholder, value, onChange, id, className='input'}) => {
+const Input = ({ type, placeholder, value, onChange, id, className='', error, readOnly = false, ...props}) => {
   return (
     <div className="input-container">
       <input
@@ -10,7 +10,9 @@ const Input = ({ type, placeholder, value, onChange, id, className='input'}) => 
         value={value}
         onChange={onChange}
         id={id}
-        className={className}
+        className={`custom-input ${error ? 'error' : ''} ${className}`}
+        readOnly={readOnly}
+        {...props}
       />
     </div>
   );

@@ -3,6 +3,7 @@ import Button from '../components/Button';
 import Label from '../components/Label';
 import Input from '../components/Input';
 import InputNumber from '../components/InputNumber';
+import Select from "./Select";
 import Tooltip from "./Tooltip";
 import '../assets/styles/campaignForm.css';
 import { PLATFORMS_LIST } from '../constants/platforms';
@@ -32,9 +33,9 @@ export function CampaignsForm({ values, handleChange, errors, onSubmit }) {
             value={values.startDate}
             onChange={handleChange}
             placeholder="DD/MM/YYYY"
-            className={`input ${errors.startDate ? 'input-error' : ''}`}
+            error={errors.startDate}
           />
-          {errors.startDate && <p className="error">{errors.startDate}</p>}
+          {errors.startDate && <p className="message-error">{errors.startDate}</p>}
         </div>
 
         <div className="form-input">
@@ -48,9 +49,9 @@ export function CampaignsForm({ values, handleChange, errors, onSubmit }) {
             value={values.endDate}
             onChange={handleChange}
             placeholder="DD/MM/YYYY"
-            className={`input ${errors.endDate ? 'input-error' : ''}`}
+            error={errors.endDate}
           />
-          {errors.endDate && <p className="error">{errors.endDate}</p>}
+          {errors.endDate && <p className="message-error">{errors.endDate}</p>}
         </div>
       </div>
 
@@ -66,9 +67,9 @@ export function CampaignsForm({ values, handleChange, errors, onSubmit }) {
               value={values.campaignName}
               onChange={handleChange}
               placeholder="Campaign name"
-              className={`input ${errors.campaignName ? 'input-error' : ''}`}
+              error={errors.campaignName}
           />
-          {errors.campaignName && <p className="error">{errors.campaignName}</p>}
+          {errors.campaignName && <p className="message-error">{errors.campaignName}</p>}
         </div>
 
         <div className="form-input">
@@ -76,21 +77,20 @@ export function CampaignsForm({ values, handleChange, errors, onSubmit }) {
             Platform:
             <Tooltip title="The social network where the campaign was published."/>
           </Label>
-          <div className="platform-select"> 
-            <select 
-              id="platform"
-              value={values.platform}
-              onChange={handleChange}
-              placeholder="Select platform"
-              className={`input ${errors.platform ? 'input-error' : ''}`}
-            >
-              <option value="">Select a social media platform</option>
-              {platforms.map(platform => (
-                    <option value={platform}>{platform}</option>
-                  ))}
-            </select>
-          </div>
-          {errors.platform && <p className="error">{errors.platform}</p>}
+          <Select
+            id="platform"
+            value={values.platform}
+            onChange={handleChange}
+            placeholder="Select a social media platform"
+            error={errors.platform}
+          >
+            {platforms.map(platform => (
+              <option key={platform} value={platform}>
+                {platform}
+              </option>
+            ))}
+          </Select>
+          {errors.platform && <p className="message-error">{errors.platform}</p>}
         </div>
       </div>
 
@@ -107,14 +107,10 @@ export function CampaignsForm({ values, handleChange, errors, onSubmit }) {
             id="reach"
             value={values.reach}
             onChange={handleChange}
-            placeholder="0"
-            min="0"  
-            step="1"        
-            className={`input ${errors.reach ? 'input-error' : ''}`}  
+            placeholder="0"    
+            error={errors.reach}    
           />
-          {errors.reach && (
-            <p className="error">{errors.reach}</p>
-          )}
+          {errors.reach && (<p className="message-error">{errors.reach}</p>)}
         </div>
 
         <div className="form-input">
@@ -126,12 +122,10 @@ export function CampaignsForm({ values, handleChange, errors, onSubmit }) {
             id="impressions"
             value={values.impressions}
             onChange={handleChange}
-            placeholder="0"
-            min="0"  
-            step="1"          
-            className={`input ${errors.impressions ? 'input-error' : ''}`}
+            placeholder="0"    
+            error={errors.impressions}     
           />
-          {errors.impressions && <p className="error">{errors.impressions}</p>}
+          {errors.impressions && <p className="message-error">{errors.impressions}</p>}
         </div>
       </div>
 
@@ -149,11 +143,9 @@ export function CampaignsForm({ values, handleChange, errors, onSubmit }) {
             value={values.clicks}
             onChange={handleChange}
             placeholder="0"
-            min="0"  
-            step="1"
-            className={`input ${errors.clicks ? 'input-error' : ''}`}
+            error={errors.clicks}
           />
-          {errors.clicks && <p className="error">{errors.clicks}</p>}
+          {errors.clicks && <p className="message-error">{errors.clicks}</p>}
         </div>
 
         <div className="form-input">
@@ -167,11 +159,9 @@ export function CampaignsForm({ values, handleChange, errors, onSubmit }) {
             onChange={handleChange}
             isDecimal = {true}
             placeholder="$0.00"
-            min="0"
-            step="0.01"
-            className={`input ${errors.amountSpent ? 'input-error' : ''}`} 
+            error={errors.amountSpent}
           />
-          {errors.amountSpent && <p className="error">{errors.amountSpent}</p>}
+          {errors.amountSpent && <p className="message-error">{errors.amountSpent}</p>}
         </div>
       </div> 
 
@@ -190,13 +180,9 @@ export function CampaignsForm({ values, handleChange, errors, onSubmit }) {
             value={values.conversions}
             onChange={handleChange}
             placeholder="0"
-            min="0"  
-            step="1"
-            className={`input ${errors.conversions ? 'input-error' : ''}`}
+            error={errors.conversions}
           />
-          {errors.conversions && (
-            <p className="error">{errors.conversions}</p>
-          )}
+          {errors.conversions && (<p className="message-error">{errors.conversions}</p>)}
         </div>
 
         <div className="form-input">
@@ -211,11 +197,9 @@ export function CampaignsForm({ values, handleChange, errors, onSubmit }) {
             onChange={handleChange}
             isDecimal = {true}
             placeholder="$0.00"
-            min="0"
-            step="0.01"
-            className={`input ${errors.revenue ? 'input-error' : ''}`} 
+            error={errors.revenue}
           />
-          {errors.revenue && <p className="error">{errors.revenue}</p>}
+          {errors.revenue && <p className="message-error">{errors.revenue}</p>}
         </div>
       </div>
 
@@ -228,12 +212,11 @@ export function CampaignsForm({ values, handleChange, errors, onSubmit }) {
             Frequency:
             <Tooltip title="Impresions/Reach"/>
           </Label>
-          <input
+          <Input
             type="number"
             id="frequency"
             value={values.reach ? ((values.impressions)/(values.reach)).toFixed(2) : "0.00"}
-            readOnly
-            className="input"
+            readOnly={true}
             placeholder="0.00"
           />
         </div>
@@ -243,12 +226,11 @@ export function CampaignsForm({ values, handleChange, errors, onSubmit }) {
             CTR:
             <Tooltip title="Click Through Rate - '(Clicks/Impressions)*100'"/>
           </Label>
-          <input
+          <Input
             type="number"
             id="ctr"
             value={values.impressions ? ((values.clicks/values.impressions)*100).toFixed(2) : "0.00"}
-            readOnly
-            className="input"
+            readOnly={true}
             placeholder="0.00%"
           />
         </div>
@@ -258,12 +240,11 @@ export function CampaignsForm({ values, handleChange, errors, onSubmit }) {
             CPC:
             <Tooltip title="Cost per Click - 'Amount Spent/Clicks'"/>
           </Label>
-          <input
+          <Input
             type="number"
             id="cpc"
             value={values.clicks ? (values.amountSpent/values.clicks).toFixed(2) : "0.00"}
-            readOnly
-            className="input"
+            readOnly={true}
             placeholder="$0.00"
           />
         </div>
@@ -273,12 +254,11 @@ export function CampaignsForm({ values, handleChange, errors, onSubmit }) {
             CPM:
             <Tooltip title="Cost per Mile - '(Amount Spent/Impresions)*1000'"/>
           </Label>
-          <input
+          <Input
             type="number"
             id="cpm"
             value={values.impressions ? ((values.amountSpent/values.impressions)*1000).toFixed(2) : "0.00"}
-            readOnly
-            className="input"
+            readOnly={true}
             placeholder="$0.00"
           />
         </div>
@@ -290,12 +270,11 @@ export function CampaignsForm({ values, handleChange, errors, onSubmit }) {
             Cost per conversion:
             <Tooltip title="'Amount Spent/Conversions'"/>
           </Label>
-          <input
+          <Input
             type="number"
             id="costPerConversion"
             value={values.conversions ? (values.amountSpent/values.conversions).toFixed(2) : "0.00"}
-            readOnly
-            className="input"
+            readOnly={true}
             placeholder="$0.00"
           />
         </div>
@@ -305,12 +284,11 @@ export function CampaignsForm({ values, handleChange, errors, onSubmit }) {
             Conversion Rate:
             <Tooltip title="'(Conversions/Clicks)*100'"/>
           </Label>
-          <input
+          <Input
             type="number"
             id="conversionRate"
             value={values.clicks ? ((values.conversions/values.clicks)*100).toFixed(2) : "0.00"}
-            readOnly
-            className="input"
+            readOnly={true}
             placeholder="0.00%"
           />
         </div>
@@ -318,14 +296,13 @@ export function CampaignsForm({ values, handleChange, errors, onSubmit }) {
         <div className="form-input">
           <Label htmlFor="ROI">
             ROI:
-            <Tooltip title="Return of Inversion - '(Revenue - Amount Spent)/Amount Spent'"/>
+            <Tooltip title="Return on Investment - '(Revenue - Amount Spent)/Amount Spent'"/>
           </Label>
-          <input
+          <Input
             type="number"
             id="roi"
             value={values.amountSpent ? ((values.revenue - values.amountSpent)/values.amountSpent).toFixed(2) : "0.00"}
-            readOnly
-            className="input"
+            readOnly={true}
             placeholder="0.00%"
           />
         </div>
@@ -335,12 +312,11 @@ export function CampaignsForm({ values, handleChange, errors, onSubmit }) {
             ROAS:
             <Tooltip title="Return of Amount Spent - 'Revenue/Amount Spent'"/>
           </Label>
-          <input
+          <Input
             type="number"
             id="roas"
             value={values.amountSpent ? (values.revenue/values.amountSpent).toFixed(2) : "0.00"}
-            readOnly
-            className="input"
+            readOnly={true}
             placeholder="0.00"
           />
         </div>

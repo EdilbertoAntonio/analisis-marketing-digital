@@ -4,7 +4,7 @@ import '../assets/styles/tooltip.css';
 const Tooltip = ({icon = "help_outline", title}) => {
     return (
       <div className="tooltip-container">
-        <i className="material-icons" title={title}>{icon}</i>
+        <i className="material-symbols-outlined" title={title}>{icon}</i>
       </div>
     );
   };

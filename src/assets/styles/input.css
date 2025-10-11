@@ -1,0 +1,22 @@
+@import './variables.css';
+
+.input-container {
+  position: relative; 
+  margin-bottom: var(--spacing-small);
+}
+.custom-input {
+  width: 80%;
+  padding: var(--spacing-medium);
+  font-size: var(--font-size-medium);
+  border: 1px solid var(--secondary-color-gray); 
+  border-radius: 10px;
+  padding-right: 40px;
+  margin-bottom: var(--spacing-medium);
+}
+.custom-input.error {
+  border-color: var(--error-color);
+}
+.custom-input.error:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--secondary-error-color);
+}

@@ -1,7 +1,6 @@
 import React from 'react';
-//import '../assets/styles/global.css';
 
-const Button = ({ type, onClick, className = 'button', children  }) => {
+const Button = ({ type, onClick, className = 'custom-button', children  }) => {
   return (
     <button 
         type={type}
