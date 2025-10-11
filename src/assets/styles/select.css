@@ -1,0 +1,50 @@
+@import './variables.css';
+
+.custom-select {
+  position: relative;
+  margin-bottom: var(--spacing-small);
+  width: 100%;
+}
+
+.select-field {
+  width: 80%;
+  padding: var(--spacing-medium);
+  border: 1px solid var(--secondary-color-gray);
+  border-radius: 10px;
+  appearance: none; 
+  font-size: var(--font-size-medium);
+  cursor: pointer;
+  background-color: var(--primary-color-white);
+}
+
+.select-field option {
+  padding: 8px;
+  background-color: var(--primary-color-white);
+  color: var(--primary-color-black);
+}
+
+.select-field:focus {
+  outline: none;
+  border-color: var(--primary-color-blue); 
+  box-shadow: 0 0 5px var(--secondary-color-gradient-blue); 
+}
+
+.select-field.error {
+  border-color: var(--error-color);
+}
+
+.select-field.error:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--secondary-error-color);
+}
+
+.custom-select::after {
+  content: "▼";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--primary-color-black);
+  font-size: 12px;
+}

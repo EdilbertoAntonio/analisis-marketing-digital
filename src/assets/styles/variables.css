@@ -20,7 +20,7 @@
     --success-color: #28a745;
     --secondary-success-color: #e0f7e0;
     --error-color: #dc3545;
-    --secondary-error-color:#fde0e0;
+    --secondary-error-color:rgba(220, 53, 69, 0.3);
   
     --font-family: 'Roboto', sans-serif;
     --font-size-small: 12px;
