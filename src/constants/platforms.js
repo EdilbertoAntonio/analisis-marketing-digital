@@ -1,18 +1,18 @@
 export const PLATFORMS = [
   {
-    platform: 'Facebook',
+    platform: 'Meta Ads',
     color: '#4267B2'
   },
   {
-    platform: 'X (Twitter)',
+    platform: 'Twitter Ads',
     color: '#1DA1F2'
   },
   {
-    platform: 'Instagram',
+    platform: 'Google Ads',
     color: '#833AB4'
   },
   {
-    platform: 'TikTok',
+    platform: 'TikTok Ads',
     color: '#FE2C55'
   }
 ];
