@@ -8,12 +8,24 @@ const Table = ({ columns, data }) => {
     
     <div className="table-scroll-container">
 
-        <table style={{width: "100%"}}> {/*arreglar esto*/}
+        <table>
             <TableHeader columns={columns} />
             <tbody>
-                {data?.map((row, index) => (
-                    <TableRow key={`row-${index}`} rowData={row} />
-                ))}
+              {data && data.length > 0 ? (
+                data?.map((row, index) => (
+                    <TableRow 
+                      key={`row-${index}`} 
+                      rowData={row} 
+                    />
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={columns.length} className="no-data">
+                      No campaigns found matching your criteria.
+                  </td>
+                </tr>               
+              )}
+
             </tbody>
         </table>
 

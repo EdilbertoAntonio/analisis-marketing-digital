@@ -12,6 +12,17 @@
     flex-direction: column;
     height: calc(100vh - 135px);
 }
+.table-scroll-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: auto;
+    position: relative;
+    width: 97%; 
+    margin: 0 auto;
+}
+.table-scroll-container table {
+    width: 100%;
+}
 .table-top {
     width: 100%;
     margin: 0 ;
@@ -21,6 +32,12 @@
     position: sticky;
     top: 0;
     z-index: 10;
+}
+.no-data {
+    text-align: center;
+    padding: 40px;
+    color: var(--secondary-color-dark-gray);
+    font-style: italic;
 }
 table {
     min-width: max-content; 
@@ -41,14 +58,6 @@ th {
 } 
 tr:hover {
     background-color: var(--secondary-color-light-gray);
-}
-.table-scroll-container {
-    flex-grow: 1;
-    overflow-y: auto;
-    overflow-x: auto;
-    position: relative;
-    width: 97%; 
-    margin: 0 auto;
 }
 @media (max-width: 600px) {
     th, td {

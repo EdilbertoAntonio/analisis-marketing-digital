@@ -1,7 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import '../../assets/styles/CampaignTable/TableControl.css';
 import '../../assets/styles/CampaignTable/FilterControl.css';
 import { PLATFORMS_LIST } from '../../constants/platforms';
+import Button from '../../components/Button';
+import Input from '../../components/Input';
+import Label from '../../components/Label';
+import Select from '../../components/Select';
 
 const FilterMenu = ({ onFilterApply }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -10,11 +14,32 @@ const FilterMenu = ({ onFilterApply }) => {
     const [endDate, setEndDate] = useState('');
     const [selectedPlatform, setSelectedPlatform] = useState('');
 
+    const filterRef = useRef(null);
+
     const platforms = PLATFORMS_LIST;
 
     const handleFilterClick = (filterType) => {
         setActiveFilter(filterType);
     };
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (filterRef.current && !filterRef.current.contains(event.target)) {
+                setIsOpen(false);
+                setActiveFilter(null);
+            }
+        };
+
+        if (isOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isOpen]);
 
     const handleApplyFilter = () => {
         const filters = {};
@@ -35,43 +60,43 @@ const FilterMenu = ({ onFilterApply }) => {
     };
 
     return (
-        <div className="filter-container">
-            <button 
+        <div className="filter-container" ref={filterRef}>
+            <Button 
                 className='filter-btn' 
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <span className="material-icons">filter_alt</span>
                 Filter
-            </button>
+            </Button>
 
             {isOpen && (
                 <div className="filter-dropdown">
                     <div className="filter-options">
-                        <button 
+                        <Button 
                             className={`filter-option ${activeFilter === 'startDate' ? 'active' : ''}`}
                             onClick={() => handleFilterClick('startDate')}
                         >
                             Start Date
-                        </button>
-                        <button 
+                        </Button>
+                        <Button 
                             className={`filter-option ${activeFilter === 'endDate' ? 'active' : ''}`}
                             onClick={() => handleFilterClick('endDate')}
                         >
                             End Date
-                        </button>
-                        <button 
+                        </Button>
+                        <Button 
                             className={`filter-option ${activeFilter === 'platform' ? 'active' : ''}`}
                             onClick={() => handleFilterClick('platform')}
                         >
                             Platform
-                        </button>
+                        </Button>
                     </div>
 
                     <div className="filter-selection">
                         {activeFilter === 'startDate' && (
                             <div className="filter-date">
-                                <label>Select start date:</label>
-                                <input 
+                                <Label>Select start date:</Label>
+                                <Input 
                                     type="date" 
                                     value={startDate}
                                     onChange={(e) => setStartDate(e.target.value)}
@@ -81,8 +106,8 @@ const FilterMenu = ({ onFilterApply }) => {
 
                         {activeFilter === 'endDate' && (
                             <div className="filter-date">
-                                <label>Select end date:</label>
-                                <input 
+                                <Label>Select end date:</Label>
+                                <Input 
                                     type="date" 
                                     value={endDate}
                                     onChange={(e) => setEndDate(e.target.value)}
@@ -92,23 +117,25 @@ const FilterMenu = ({ onFilterApply }) => {
 
                         {activeFilter === 'platform' && (
                             <div className="filter-platform">
-                                <label>Select platform:</label>
-                                <select
+                                <Label>Select platform:</Label>
+                                <Select
                                     value={selectedPlatform}
                                     onChange={(e) => setSelectedPlatform(e.target.value)}
                                 >
                                     <option value="">All platforms</option>
-                                        {platforms.map(platform => (
-                                            <option key={platform} value={platform}>{platform}</option>
-                                        ))}
-                                </select>
+                                    {platforms.map(platform => (
+                                        <option key={platform} value={platform}>
+                                            {platform}
+                                        </option>
+                                    ))}
+                                </Select>
                             </div>
                         )}
                     </div>
 
                     <div className="filter-actions">
-                        <button onClick={handleResetFilters}>Reset</button>
-                        <button onClick={handleApplyFilter}>Apply</button>
+                        <Button onClick={handleResetFilters}>Reset</Button>
+                        <Button onClick={handleApplyFilter}>Apply</Button>
                     </div>
                 </div>
             )}

@@ -14,7 +14,7 @@
 .footer-text {
     color: var(--secondary-color-dark-gray);
     align-items: center;
-    font-size: 14px;
+    font-size: var(--font-size-medium);
     margin-left: 15px;
 }
 .footer-buttons {
@@ -29,6 +29,7 @@
     border-radius: 50%;
     background-color: var(--primary-color-white);
     border: 2px solid var(--primary-color-blue);
+    font-size: var(--font-size-medium);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,6 +46,7 @@
 .page-indicator {
     display: flex;
     align-items: center;
+    margin: 0 !important
 }
 .page-input {
     width: 40px;
@@ -58,11 +60,12 @@
     align-items: center;
     justify-content: center;
     padding: 0;
+    margin: 0;
     outline: none;
     cursor: default;
     line-height: 1; 
     appearance: none; 
-    margin: 0;
+    /* margin-bottom: 0 !important */
 }
 @media (max-width: 768px){
     .page-input, .circle-button{

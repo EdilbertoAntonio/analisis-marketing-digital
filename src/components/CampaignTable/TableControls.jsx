@@ -1,56 +1,58 @@
 import '../../assets/styles/CampaignTable/TableControl.css';
 import FilterMenu from './FilterMenu';
 import { useState } from 'react';
+import Input from '../../components/Input';
+import Label from '../../components/Label';
+import Select from '../../components/Select';
 
-const TableControls = ({}) => {
+const TableControls = ({ onSearch, onItemsPerPageChange, onFilterApply }) => {
+    const [searchValue, setSearchValue] = useState('');
 
-    const [filters, setFilters] = useState({});
-    
-    const applyFilters = (data) => {
-        return data.filter(item => {
-            if (filters.date && item.date !== filters.date) return false;
-            if (filters.platform && item.platform !== filters.platform) return false;
-            return true;
-        });
+    const handleSearchChange = (e) => {
+        const value = e.target.value;
+        setSearchValue(value);
+        onSearch(value);
     };
-      
-    //const filteredData = applyFilters(data);
+
+    const handleItemsPerPageChange = (e) => {
+        onItemsPerPageChange(e.target.value);
+    };
+
     return (
     <div className='table-controls'>
         
         <div className='left-controls'>
             <div className='search-field'>
-                <input
+                <Input
                     type="text"
                     id="searchCampaign"
                     placeholder="Search Campaigns ..."
-                    className='input-table'
+                    value={searchValue}
+                    onChange={handleSearchChange}
+                    noMargin={true}
                 />
             </div>
         
-            <FilterMenu onFilterApply={setFilters} />
+            <FilterMenu onFilterApply={onFilterApply} />
                   
-            <div className='download-container'>  {/* Revisar esta parte */}
-                <button className='download-btn'>
-                    <span className="material-icons">download</span>
-                      
-                </button>
-                <span className="download-tooltip">Download the table in a .csv format.</span>          
-            </div>
         </div>
         
         <div className='right-controls'>
-            <label className='rows-label'>
+            <Label className='rows-label'>
                 Rows per page:
-            </label>
+            </Label>
             <div className="rows-select"> 
-                <select>
+                <Select 
+                    onChange={handleItemsPerPageChange} 
+                    defaultValue='10'   
+                >
+                    <option value="5">5</option>
                     <option value="10">10</option>
                     <option value="20">20</option>
                     <option value="30">30</option>
                     <option value="40">40</option>
                     <option value="50">50</option>
-                </select>
+                </Select>
             </div>
         </div>
         

@@ -52,37 +52,17 @@
     gap: 5px;
     box-shadow: none;
     justify-content: center;
-    width: auto;
+    width: 100px;
     height: 36px;
+    font-size: var(--font-size-medium);
 }
-.download-container{
-    position: relative;
-    display: inline-block;
-}
-.download-btn {
-    display: flex;
-    align-items: center;
-    padding: 8px 5px;
-    border: 1px solid var(--secondary-color-gray);
-    border-radius: 15px;
-    background-color: var(--primary-color-white);
-    cursor: pointer;
-    color: var(--primary-color-blue);
-    justify-content: center;
-    width: 100%;
-    height: 36px;
-    position: relative;
-    margin: initial;
-    box-shadow: none;
-    font-size: inherit;
-}
-.filter-btn span, .download-btn span {
+.filter-btn span {
     margin-left: 0px;
 }
-.search-field input:hover, .search-btn:hover, .filter-btn:hover, .download-btn:hover{
+.search-field input:hover, .filter-btn:hover{
     background-color: var(--secondary-color-light-gray);
 }
-.search-field input:focus, .search-btn:hover, .filter-btn:focus, .download-btn:focus{
+.search-field input:focus, .filter-btn:focus{
     outline: none;
     border-color: var(--primary-color-blue); 
     box-shadow: 0 0 5px var(--secondary-color-gradient-blue); 
@@ -111,42 +91,6 @@
     background-color: var(--primary-color-white);
     color: var( --primary-color-black);
 }
-.rows-select select:focus {
-    outline: none;
-    border-color: var(--primary-color-blue); 
-    box-shadow: 0 0 5px var(--secondary-color-gradient-blue); 
-}
-.rows-select::after {
-    content: "▼";
-    position: absolute;
-    top: 50%;
-    right: 8px;
-    transform: translateY(-50%);
-    pointer-events: none;
-    color: var(--primary-color-black);
-}
-.download-tooltip {
-    visibility: hidden;
-    width: 200px; 
-    background-color: var(--primary-color-white);
-    color: var(--primary-color-black);
-    border: 1px solid var(--primary-color-black);
-    text-align: center;
-    border-radius: 10px;
-    padding: 8px;
-    position: absolute;
-    z-index: 100;
-    bottom: 100%; 
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 0.3s, visibility 0.3s;
-    pointer-events: none;
-}
-.download-container:hover .download-tooltip {
-    visibility: visible;
-    opacity: 1;
-} 
 @media (max-width: 768px){
     .left-controls, .table-controls{
         gap:10px;

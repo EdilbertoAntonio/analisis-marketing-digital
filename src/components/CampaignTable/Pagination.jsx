@@ -1,3 +1,5 @@
+import Button from '../../components/Button';
+import Input from '../../components/Input';
 import '../../assets/styles/CampaignTable/PageControl.css';
 
 const Pagination = ({ currentPage = 1, totalPages = 1, totalItems = 0, itemsPerPage = 10, onPageChange }) => {
@@ -37,30 +39,32 @@ const Pagination = ({ currentPage = 1, totalPages = 1, totalItems = 0, itemsPerP
         </div>
 
         <div className="footer-buttons">
-            <button 
+            <Button 
                 className="circle-button"
                 onClick={handlePrevious}
                 disabled={currentPage === 1}
             >
                 <span className="material-icons">chevron_left</span>
-            </button>
+            </Button>
 
             <div className="page-indicator">
-                <input 
+                <Input 
                     className='page-input'
                     type="text"
                     value={currentPage}
+                    id="current-page"
                     readOnly
+                    noMargin={true}
                 />
             </div>
 
-            <button 
+            <Button 
                 className="circle-button"
                 onClick={handleNext}
                 disabled={currentPage === totalPages}
             >
                 <span className="material-icons">chevron_right</span>
-            </button>
+            </Button>
         </div>
     </div>
   );

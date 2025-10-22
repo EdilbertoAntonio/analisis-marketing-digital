@@ -29,13 +29,19 @@
     background-color: var(--primary-color-white);
     cursor: pointer;
     color: var(--primary-color-black);
+    width: 100%;
+    font-size: var(--font-size-medium);
 }
 .filter-option.active {
     background-color: var(--secondary-color-light-gray);
-    border-color: var(--primary-color-black);
+    border-color: var(--primary-color-blue); 
+    box-shadow: 0 0 5px var(--secondary-color-gradient-blue);
 }  
 .filter-selection {
     margin-bottom: 10px;
+}
+.filter-date label, .filter-platform label {
+    margin: 0;
 }
 .filter-date input, .filter-platform select {
     box-sizing: border-box;
@@ -57,15 +63,12 @@
 }
 .filter-actions {
     display: flex;
-    justify-content: flex-end;
     gap: 8px;
 }
 .filter-actions button {
     padding: 6px 12px;
     border-radius: 10px;
     cursor: pointer;
-}
-.filter-actions button {
     background-color: var(--primary-color-blue);
     color: var(--primary-color-white);
     border: none;
