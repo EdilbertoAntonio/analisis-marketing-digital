@@ -1,0 +1,87 @@
+@import '../variables.css';
+
+.filter-container {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+}
+.filter-dropdown {
+    position: absolute;
+    top: calc(100% + 8px); 
+    left: 50%; 
+    transform: translateX(-50%);
+    background-color: var(--primary-color-white);
+    border: 1px solid var(--secondary-color-gray);
+    border-radius: 10px;
+    padding: 16px;
+    width: 350px;
+    z-index: 100;
+}
+.filter-options {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+.filter-option {
+    padding: 6px 12px;
+    border: 1px solid var(--secondary-color-gray);
+    border-radius: 10px;
+    background-color: var(--primary-color-white);
+    cursor: pointer;
+    color: var(--primary-color-black);
+    width: 100%;
+    font-size: var(--font-size-medium);
+}
+.filter-option.active {
+    background-color: var(--secondary-color-light-gray);
+    border-color: var(--primary-color-blue); 
+    box-shadow: 0 0 5px var(--secondary-color-gradient-blue);
+}  
+.filter-selection {
+    margin-bottom: 10px;
+}
+.filter-date label, .filter-platform label {
+    margin: 0;
+}
+.filter-date input, .filter-platform select {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--secondary-color-gray);
+    border-radius: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    height: 100%;
+}
+.filter-option:hover, .filter-date input:hover, .filter-platform select:hover  {
+    background-color: var(--secondary-color-light-gray);
+}
+.filter-option:focus, .filter-date input:focus, .filter-platform select:focus {
+    outline: none;
+    border-color: var(--primary-color-blue); 
+    box-shadow: 0 0 5px var(--secondary-color-gradient-blue); 
+}
+.filter-actions {
+    display: flex;
+    gap: 8px;
+}
+.filter-actions button {
+    padding: 6px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--primary-color-blue);
+    color: var(--primary-color-white);
+    border: none;
+}
+.filter-actions button:hover{
+    background-color: var(--secondary-color-blue);
+}
+.filter-btn.active {
+    background: var(--primary-color-blue);
+    color: var(--primary-color-white);
+}
+@media (max-width: 768px){
+    .filter-dropdown{
+        top: calc(100% - 20px); 
+    }
+}

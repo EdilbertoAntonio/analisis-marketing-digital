@@ -1,0 +1,98 @@
+@import '../variables.css';
+
+.table-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    width: 100%;
+    position: sticky;
+}
+.left-controls {
+    display: flex;
+    align-items: center;
+    gap: 30px; 
+}
+.right-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.search-field {
+    position: relative;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 500px;
+    height: 36px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+.search-field input {
+    padding: 8px 12px;
+    border: 1px solid var(--secondary-color-gray); 
+    border-radius: 10px;
+    width: 100%;
+    font-size: var(--font-size-medium);
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: 0;
+}
+.filter-btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 5px;
+    border: 1px solid var(--secondary-color-gray);
+    border-radius: 10px;
+    background-color: var(--primary-color-white);
+    cursor: pointer;
+    color: var(--primary-color-black);
+    gap: 5px;
+    box-shadow: none;
+    justify-content: center;
+    width: 100px;
+    height: 36px;
+    font-size: var(--font-size-medium);
+}
+.filter-btn span {
+    margin-left: 0px;
+}
+.search-field input:hover, .filter-btn:hover{
+    background-color: var(--secondary-color-light-gray);
+}
+.search-field input:focus, .filter-btn:focus{
+    outline: none;
+    border-color: var(--primary-color-blue); 
+    box-shadow: 0 0 5px var(--secondary-color-gradient-blue); 
+}
+.rows-label {
+    font-size: var(--font-size-medium);
+    color: var(--primary-color-black); 
+}
+.rows-select {
+    position: relative;
+    display: inline-block;
+    width: 70px;
+    height: 36px;
+}
+.rows-select select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--secondary-color-gray);
+    border-radius: 10px;
+    appearance: none; 
+    font-size: var(--font-size-medium);
+    cursor: pointer;
+}
+.rows-select option {
+    padding: 8px;
+    background-color: var(--primary-color-white);
+    color: var( --primary-color-black);
+}
+@media (max-width: 768px){
+    .left-controls, .table-controls{
+        gap:10px;
+    }
+}

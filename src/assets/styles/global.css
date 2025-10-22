@@ -80,7 +80,7 @@ p {
   margin-bottom: var(--spacing-medium);
 }
 .material-symbols-outlined {
-  font-size: 18px; 
+  font-size: 20px; 
   vertical-align: text-top; 
 }
 .material-symbols-outlined.icon-large {
@@ -90,7 +90,8 @@ p {
   font-size: 86px; 
 }
 .material-icons {
-  font-size: var(--font-size-medium);           
+  /* font-size: var(--font-size-medium);            */
+  font-size: 18px; 
   vertical-align: sub; 
 }
 .material-icons.icon-large {

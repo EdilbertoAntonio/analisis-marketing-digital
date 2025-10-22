@@ -4,6 +4,9 @@
   position: relative; 
   margin-bottom: var(--spacing-small);
 }
+.input-container.no-margin {
+  margin-bottom: 0;
+}
 .custom-input {
   width: 80%;
   padding: var(--spacing-medium);
