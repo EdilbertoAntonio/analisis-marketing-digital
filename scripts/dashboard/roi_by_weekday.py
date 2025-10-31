@@ -5,10 +5,13 @@ from ..utils.date_range import get_last_30_days, get_last_7_days, get_current_mo
 def process_period_data(data: pd.DataFrame, start_date: datetime, end_date: datetime) -> str:
 
     period_data = data[(data['endDate'] >= start_date) & (data['endDate'] <= end_date)].copy()
-    period_data['weekday'] = period_data['endDate'].dt.strftime('%a')
+    period_data['weekday_num'] = period_data['endDate'].dt.weekday
+    period_data['weekday_name'] = period_data['endDate'].dt.strftime('%a')
 
-    roi_by_day = period_data.groupby('weekday')[['revenue', 'amountSpent', 'roi']].mean()
+    roi_by_day = period_data.groupby(['weekday_num', 'weekday_name'])[['revenue', 'amountSpent', 'roi']].mean()
+    roi_by_day['roi'] = roi_by_day['roi']*100
     roi_by_day = roi_by_day.reset_index()
+    roi_by_day = roi_by_day.drop(columns='weekday_num')
     roi_by_day.columns = ['day', 'Revenue', 'AdSpend', 'roi']
     
     return roi_by_day.to_json(orient='records', indent=2)

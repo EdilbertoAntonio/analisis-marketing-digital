@@ -8,11 +8,13 @@ def compute_change(current:float, previous:float) -> float:
     
     return ((current - previous)/previous) * 100
 
-def get_metric_change(current_data: pd.DataFrame, previous_data: pd.DataFrame, metric_name: str, agg_method: str) -> float:
+def get_metric_details(current_data: pd.DataFrame, previous_data: pd.DataFrame, metric_name: str, agg_method: str) -> tuple[float, float]:
     current_metric = current_data[metric_name].agg(agg_method)
     previous_metric = previous_data[metric_name].agg(agg_method)
+
+    change = compute_change(current_metric, previous_metric)
     
-    return compute_change(current_metric, previous_metric)
+    return current_metric.item(), float(change)
 
 def cards_data(data: pd.DataFrame) -> str:
     start_date, end_date = get_current_month_range()
@@ -28,10 +30,15 @@ def cards_data(data: pd.DataFrame) -> str:
         'cpc': 'mean'
     }
 
-    results = {
-        metric: get_metric_change(current_data, previous_data, metric, agg_method)
-        for metric, agg_method in metrics_to_process.items()
-    }    
+    results = {}
+    for metric, agg_method in metrics_to_process.items():
+        
+        current_value, change_value = get_metric_details(current_data, previous_data, metric, agg_method)
+        results[metric] = {
+            'value': current_value,
+            'change': change_value
+        }  
+
     cards_data = json.dumps(results, indent=2)
     
     return cards_data

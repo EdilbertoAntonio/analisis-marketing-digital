@@ -7,7 +7,7 @@
 }
 
 .select-field {
-  width: 80%;
+  width: 100%;
   padding: var(--spacing-medium);
   border: 1px solid var(--secondary-color-gray);
   border-radius: 10px;

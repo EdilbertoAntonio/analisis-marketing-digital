@@ -1,14 +1,18 @@
 [
   {
     "platform":"Google Ads",
-    "amounSpent":43791.39
+    "amountSpent":98963.28
   },
   {
     "platform":"Meta Ads",
-    "amounSpent":161335.52
+    "amountSpent":88701.95
   },
   {
     "platform":"TikTok Ads",
-    "amounSpent":26700.84
+    "amountSpent":30568.26
+  },
+  {
+    "platform":"Twitter Ads",
+    "amountSpent":96561.47
   }
 ]
