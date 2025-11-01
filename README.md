@@ -1,4 +1,4 @@
-# 📈 Campaign Analytics Dashboard - Portfolio Project
+# Marketing analysis - Portfolio Project
 
 This project represents a **significant portion of the work and skills acquired during my professional internship** as a Junior Data Analyst at **NeuroMarket**.
 
@@ -56,7 +56,7 @@ The core analytics module, providing visual insights into campaign performance a
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 * **Frontend:** React.js and Recharts.js
 * **Styling:** plain CSS
@@ -64,7 +64,7 @@ The core analytics module, providing visual insights into campaign performance a
 
 ---
 
-## ⚙️ Local Setup and Instructions
+## Local Setup and Instructions
 
 Follow these steps to get the application running on your local machine.
 
@@ -117,7 +117,7 @@ The application will typically be accessible at http://localhost:5173 (or the po
 
 ### (Optional)Step 3.5: Generate the data and run the application
 
-If you already have the python requirements and the npm dependencies, you can generate data and run the application using:  
+If you already have the Python requirements and the Node dependencies, you can generate data and start the application in a single command:  
 
 ```bash
 npm run dev-with-data
