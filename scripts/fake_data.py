@@ -5,21 +5,22 @@ from faker import Faker
 
 fake = Faker()
 
-def fake_campaigns(amount=50):
+def fake_campaigns(amount:int =50) -> str:
     campaigns = []
     platforms = ['Meta Ads', 'Twitter Ads', 'Google Ads', 'TikTok Ads' ]
+    fmt = '%d/%m/%Y'
     
-    for i in range(amount):
-        start_date = fake.date_between(start_date='-60d', end_date='+30d')
-        reach = random.randint(50, 50000)
+    for _ in range(amount):
+        start_date = fake.date_between(start_date='-180d', end_date='+0d')
         impressions = random.randint(1000, 100000)
-        clicks = random.randint(50, 50000)
-        conversions = random.randint(10, 1000)
+        reach = random.randint(500, int(impressions))
+        clicks = random.randint(300, int(impressions))
+        conversions = random.randint(100, int(clicks))
         amount_spent = round(random.uniform(1000, 50000), 2)
         revenue = round(random.uniform(0, 50000), 2)
         campaigns.append({
-            'startDate': start_date.strftime('%d/%m/%Y'),
-            'endDate': (start_date + timedelta(days=random.randint(7, 120))).strftime('%d/%m/%Y'),
+            'startDate': start_date.strftime(fmt),
+            'endDate': (start_date + timedelta(days=random.randint(7, 120))).strftime(fmt),
             'campaignName': f"Campaign {fake.word().title()} {random.randint(1000, 9999)}",
             'platform': random.choice(platforms),
             'reach': reach,
@@ -37,9 +38,5 @@ def fake_campaigns(amount=50):
             'roi': (revenue - amount_spent) / amount_spent,
             'roas': revenue / amount_spent
         })
-    
-    return campaigns
-
-campaigns = fake_campaigns(100)
-with open('src/data/data.json', 'w', encoding='utf-8') as f:
-    json.dump(campaigns, f, ensure_ascii=False, indent=2)
+    campaigns_json = json.dumps(campaigns, indent=2)
+    return campaigns_json

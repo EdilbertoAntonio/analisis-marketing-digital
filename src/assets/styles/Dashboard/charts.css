@@ -1,0 +1,60 @@
+@import '../variables.css';
+
+.kpi-grid-charts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 1rem;
+    margin: 1rem;
+}
+.chart-container {
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    background-color: var(--primary-color-white);
+    padding: 0.5rem;
+    box-shadow: 0 2px 5px var(--secondary-color-black-box-shadow);
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+.select-wrapper {
+    position: relative;
+    width: auto; 
+    display: inline-block;
+    min-width: 150px;
+}
+.chart-header{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   padding-left: 1rem;
+   padding-right: 1rem;
+}
+.kpi-table{
+  width: 95%;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  text-align:justify;
+  border-collapse: collapse ;
+}
+.table-body{
+   border-top: 1px solid var(--secondary-color-gray);
+   border-bottom: 1px solid var(--secondary-color-gray);
+}
+.container-responsive{
+  width: 100%;
+  height: 300px;
+}
+.warning-icon {
+    vertical-align: middle;
+    margin-right: 6px;
+    color: var(--secondary-color-red);
+}
+.check-icon {
+    vertical-align: middle;
+    margin-right: 6px;
+    color: var(--secondary-color-green);
+}

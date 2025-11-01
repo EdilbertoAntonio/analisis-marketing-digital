@@ -1,0 +1,14 @@
+@import '../variables.css';
+
+.dashboard-main {
+  flex-grow: 1;
+  padding: 0.5rem;
+  overflow-y: auto;
+}
+.kpi-dashboard {
+    padding: 1px;
+}
+.DivWithScroll{
+    height: 100vh;/*660px;*/
+    overflow:visible;
+}

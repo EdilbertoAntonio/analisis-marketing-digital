@@ -1,0 +1,14 @@
+[
+  {
+    "performance":"High",
+    "noCampaigns":2
+  },
+  {
+    "performance":"Low",
+    "noCampaigns":2
+  },
+  {
+    "performance":"Middle",
+    "noCampaigns":10
+  }
+]

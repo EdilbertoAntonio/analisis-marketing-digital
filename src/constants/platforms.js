@@ -9,7 +9,7 @@ export const PLATFORMS = [
   },
   {
     platform: 'Google Ads',
-    color: '#833AB4'
+    color: '#34A853'  //'#833AB4'
   },
   {
     platform: 'TikTok Ads',
