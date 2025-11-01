@@ -33,6 +33,7 @@
     text-align: left;
     overflow-x: auto;  
     overflow-y: auto; 
+    height: calc(100vh - 135px);
 }
 .metrics-container input,
 .metrics-container select {
